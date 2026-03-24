@@ -1,6 +1,24 @@
 body {
     font-family: 'Times New Roman', Times, serif;
-    background: linear-gradient(135deg, #74ebd5, #9face6);
+
+    background-image: 
+        url("images/CoVietNam.jpg"),   /* bên trái */
+        url("images/BanDoVietNam.jpg");    /* bên phải */
+
+    background-position: 
+        left center, 
+        right center;
+
+    background-repeat: 
+        no-repeat, 
+        no-repeat;
+
+    background-size: 
+        500px,   /* size cờ */
+        500px;   /* size bản đồ */
+
+    background-color: rgb(12, 162, 212); /* nền đỏ */
+
     height: 100vh;
     display: flex;
     justify-content: center;

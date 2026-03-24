@@ -2,7 +2,7 @@ const API_KEY = "62d6c0d8e3f34f4783e152824262003";
 
 //   DỮ LIỆU KHU VỰC - TỈNH
 
-const regions = {
+const regions = {   
     Bắc: [
         "Hanoi",           // Hà Nội
         "Hai Phong",       // Hải Phòng
