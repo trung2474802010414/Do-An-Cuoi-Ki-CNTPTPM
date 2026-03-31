@@ -5,38 +5,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dự Báo Thời Tiết Việt Nam</title>
-
     <link rel="stylesheet" href="style.css">
-    
 </head>
-    
+
 <body>
 
     <div class="container">
 
         <h1>🌤 Dự Báo Thời Tiết Việt Nam</h1>
 
-        <!-- Đồng hồ -->
         <div id="clock" class="clock"></div>
 
         <div class="select-box">
 
-            <!-- Khu vực -->
-            <select id="region">                                
+            <select id="region">
                 <option value="">-- Chọn khu vực --</option>
                 <option value="Bắc">Miền Bắc</option>
                 <option value="Trung">Miền Trung</option>
                 <option value="Nam">Miền Nam</option>
             </select>
 
-            <!-- Tỉnh -->
             <select id="city">
                 <option value="">-- Chọn tỉnh/thành --</option>
             </select>
 
+            <!-- NEW -->
+            <input type="text" id="searchCity" placeholder="Hoặc nhập thành phố..." />
 
             <button onclick="getWeather()">Xem thời tiết</button>
-
+            <button onclick="getLocationWeather()">📍 Dùng vị trí của tôi</button>
         </div>
 
         <div id="weather" class="weather-box">
