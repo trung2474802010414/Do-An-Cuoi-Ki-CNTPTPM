@@ -14,7 +14,9 @@ body {
     width: 420px;
     text-align: center;
 }
-
+html, body {
+    overflow-y: auto;
+}
 .clock {
     font-size: 22px;
     font-weight: bold;
