@@ -10,7 +10,7 @@ const regionSelect = document.getElementById("region");
 const citySelect = document.getElementById("city");
 const inputCity = document.getElementById("searchCity");
 
-// ===== REGION → CITY =====
+//REGION → CITY 
 regionSelect.addEventListener("change", function () {
     citySelect.innerHTML = '<option value="">-- Chọn tỉnh/thành --</option>';
     const region = this.value;
@@ -25,7 +25,6 @@ regionSelect.addEventListener("change", function () {
     });
 });
 
-// ===== ICON =====
 function getWeatherIcon(weather) {
     weather = weather.toLowerCase();
     if (weather.includes("clear")) return "☀️";
@@ -35,7 +34,6 @@ function getWeatherIcon(weather) {
     return "🌡";
 }
 
-// ===== BACKGROUND =====
 function changeBackground(weather) {
     weather = weather.toLowerCase();
     let bg = "";
@@ -53,7 +51,6 @@ function changeBackground(weather) {
     document.body.style.background = bg;
 }
 
-// ===== LẤY ĐỊA CHỈ THẬT =====
 async function getAddress(lat, lon) {
     try {
         const url = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}&accept-language=vi`;
@@ -61,7 +58,7 @@ async function getAddress(lat, lon) {
         const res = await fetch(url);
         const data = await res.json();
 
-        // rút gọn cho đẹp
+      
         return data.display_name.split(",").slice(0, 3).join(",");
 
     } catch (err) {
@@ -70,7 +67,7 @@ async function getAddress(lat, lon) {
     }
 }
 
-// ===== GET WEATHER =====
+//  GET WEATHER 
 async function getWeather(customCity = null, address = null) {
 
     const city = customCity || inputCity.value || citySelect.value;
@@ -100,7 +97,7 @@ async function getWeather(customCity = null, address = null) {
 
         changeBackground(weatherDesc);
 
-        // ===== FORECAST NGANG =====
+        //  FORECAST NGANG 
         let forecastHTML = `<div class="forecast">`;
 
         data.forecast.forecastday.forEach(day => {
@@ -149,7 +146,7 @@ async function getWeather(customCity = null, address = null) {
     }
 }
 
-// ===== GPS =====
+// GPS 
 function getLocationWeather() {
     navigator.geolocation.getCurrentPosition(async (pos) => {
 
@@ -162,13 +159,13 @@ function getLocationWeather() {
     });
 }
 
-// ===== AUTO LOAD =====
+//  AUTO LOAD 
 window.onload = () => {
     const last = localStorage.getItem("lastCity");
     if (last) getWeather(last);
 };
 
-// ===== CLOCK =====
+// CLOCK 
 function updateClock() {
     const now = new Date();
     const h = String(now.getHours()).padStart(2, "0");
